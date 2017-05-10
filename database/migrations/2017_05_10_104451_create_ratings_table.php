@@ -15,7 +15,10 @@ class CreateRatingsTable extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('star_id')->unsigned()->index();
+            $table->integer('rating_id')->unsigned()->index();
+            $table->string('rating_type')->index();
+            $table->ipAddress('address_ip')->index();
         });
     }
 

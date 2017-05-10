@@ -14,8 +14,9 @@ class CreatePhotoSizesTable extends Migration
     public function up()
     {
         Schema::create('photo_sizes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('photo_id')->unsigned()->index();
+            $table->string('path');
+            $table->smallInteger('width')->unsigned()->index();
         });
     }
 

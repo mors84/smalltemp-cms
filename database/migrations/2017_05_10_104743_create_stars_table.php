@@ -15,7 +15,8 @@ class CreateStarsTable extends Migration
     {
         Schema::create('stars', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->tinyInteger('number')->unsigned();
+            $table->string('name');
         });
     }
 

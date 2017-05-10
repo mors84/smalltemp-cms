@@ -15,7 +15,10 @@ class CreateSocialMediaLinksTable extends Migration
     {
         Schema::create('social_media_links', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('social_media_id')->unsigned()->index();
+            $table->integer('social_media_link_id')->unsigned()->index();
+            $table->string('social_media_link_type')->index();
+            $table->string('profile_link');
         });
     }
 

@@ -15,7 +15,12 @@ class CreateCommentRepliesTable extends Migration
     {
         Schema::create('comment_replies', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('is_active')->default(0);
+            $table->string('author');
+            $table->string('email');
+            $table->text('content');
             $table->timestamps();
+            $table->integer('comment_id')->unsigned()->index();
         });
     }
 
