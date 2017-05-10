@@ -13,7 +13,7 @@ class CommentReplyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class CommentReplyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'author'        =>  'required|max:50',
+            'email'         =>  'email|max:255',
+            'content'       =>  'max:1500',
+            'comment_id'    =>  'required|numeric|exists:comments,id',
         ];
     }
 }

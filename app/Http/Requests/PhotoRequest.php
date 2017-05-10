@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PhotoRequest extends FormRequest
@@ -13,7 +14,7 @@ class PhotoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -23,8 +24,24 @@ class PhotoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'POST':
+            return [
+                'path'                      =>  'required|image|max:4000',
+                'alt'                       =>  'max:255',
+                'title'                     =>  'max:255',
+                'tags'                      =>  'array',
+            ];
+            break;
+            case 'PATCH':
+            case 'PUT':
+            return [
+                'alt'                       =>  'max:255',
+                'title'                     =>  'max:255',
+                'tags'                      =>  'array',
+            ];
+            break;
+            default:break;
+        }
     }
 }

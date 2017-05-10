@@ -13,7 +13,7 @@ class VoteRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class VoteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'value'             =>  'integer|between:-1,1',
         ];
     }
 }
