@@ -2,10 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\CommentReply;
+use App\Http\Requests\CommentReplyRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class CommentReplyController extends Controller
 {
+    /**
+     * Instantiate a new CommentRepliesController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('admin', ['except' => 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,17 +26,8 @@ class CommentReplyController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $comments = CommentReply::latest()->paginate(15);
+        return view('admin.pages.comments.replies.index', compact('comments'));
     }
 
     /**
@@ -32,31 +36,20 @@ class CommentReplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentReplyRequest $request)
     {
-        //
-    }
+        CommentReply::create([
+            'author'        =>  $request['author'],
+            'email'         =>  $request['email'],
+            'content'       =>  $request['content'],
+            'comment_id'    =>  $request['comment_id']
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        if (App::isLocale('pl')) {
+            return response()->json(['status' => 'Komentarz został wysłany do zatwierdzenia!']);
+        } else {
+            return response()->json(['status' => 'The comment has been sent to approve!']);
+        }
     }
 
     /**
@@ -68,7 +61,14 @@ class CommentReplyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        CommentReply::findOrFail($id)->update($input);
+
+        if (App::isLocale('pl')) {
+            return redirect()->back()->with('status', 'Komentarz został zaktualizowany!');
+        } else {
+            return redirect()->back()->with('status', 'The comment has been updated!');
+        }
     }
 
     /**
@@ -79,6 +79,43 @@ class CommentReplyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CommentReply::findOrFail($id)->delete();
+
+        if (App::isLocale('pl')) {
+            return redirect()->route('replies.index')->with('status', 'Komentarz został skasowany!');
+        } else {
+            return redirect()->route('replies.index')->with('status', 'The comment has been deleted!');
+        }
+    }
+
+    /**
+     * Update the is_active in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function ajaxChangeActive(Request $request, $id)
+    {
+        $this->validate($request, [
+            'is_active' => 'required|boolean'
+        ]);
+
+        $input = $request->only(['is_active']);
+        $comment = CommentReply::findOrFail($id);
+        $comment->update($input);
+
+        if (App::isLocale('pl'))
+        {
+            return response()->json([
+                'title'             => 'Wiadomość',
+                'status'            => 'Komentarz użytkownika &#8222;'.$comment->author.'&#8221; został zaktualizowany!'
+            ]);
+        } else {
+            return response()->json([
+                'title'             => 'Message',
+                'status'            => ucfirst($comment->author).'\'s comment has been updated!'
+            ]);
+        }
     }
 }

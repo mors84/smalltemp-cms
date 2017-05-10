@@ -2,83 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\Rating;
+use App\Http\Requests\RatingRequest;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+    public function store(RatingRequest $request)
     {
-        //
-    }
+        $post = Post::findOrFail($request['post_id']);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $addressesIpUsedInTable = Rating::where('rating_id', $post->id)->pluck('address_ip');
+        $addressIp = $request->ip();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if ($addressesIpUsedInTable->contains($addressIp))
+        {
+            $post->ratings()->where('address_ip', $addressIp)->update(['star_id' => $request['rating']]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+            $avgOfRatings = round($post->ratings->avg('number'), 1);
+            $countOfRatings = $post->ratings->count('number');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+            return response()->json([
+                'avgOfRatings' => $avgOfRatings,
+                'countOfRatings' => $countOfRatings
+            ]);
+        }
+        else
+        {
+            $post->ratings()->attach($request['rating'], ['address_ip' => $addressIp]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+            $avgOfRatings = round($post->ratings->avg('number'), 1);
+            $countOfRatings = $post->ratings->count('number');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return response()->json([
+                'avgOfRatings' => $avgOfRatings,
+                'countOfRatings' => $countOfRatings
+            ]);
+        }
+
     }
 }
