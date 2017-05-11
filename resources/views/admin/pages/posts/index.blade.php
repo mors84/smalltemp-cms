@@ -52,7 +52,7 @@
 
                                                 {{-- Photo --}}
                                                 <a href="{{isset($post->photo->id) ? route('photos.edit', $post->photo->id) : null}}">
-                                                    <img src="{{isset($post->photo) ? $post->photo->sizes->last()->path : '/images/post-default-75.jpg'}}" height="50px">
+                                                    <img src="{{isset($post->photo) ? $post->photo->sizes->last()->path : '/images/admin/post-default-75.jpg'}}" height="50px">
                                                 </a>
 
                                             </td>

@@ -68,7 +68,7 @@
                                     </a>
                                 @endif
                             @else
-                                <img src="/images/post-default-768.jpg" class="img-responsive center-block">
+                                <img src="/images/admin/post-default-768.jpg" class="img-responsive center-block">
                             @endif
                         </div>
 
@@ -136,7 +136,7 @@
                                         {{-- About Author --}}
                                         <div class="social-avatar">
                                             <div class="pull-left">
-                                                <img src="/images/user-default-50.jpg" height="50">
+                                                <img src="/images/admin/user-default-50.jpg" height="50">
                                             </div>
                                             <div class="media-body">
                                                 <a href="{{route('comments.show', $comment->id)}}">
@@ -192,7 +192,7 @@
                                                     {{-- About Author --}}
                                                     <div class="social-avatar">
                                                         <div class="pull-left">
-                                                            <img src="/images/user-default-50.jpg" height="50">
+                                                            <img src="/images/admin/user-default-50.jpg" height="50">
                                                         </div>
                                                         <div class="media-body">
                                                             {{$reply->author or 'unknown'}}

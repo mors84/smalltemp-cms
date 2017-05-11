@@ -35,7 +35,7 @@
                                 <img src="{{$photo->sizes[0]->path}}" id="fullPhoto" class="img-responsive center-block">
                             @endif
                         @else
-                            <img src="/images/post-default-768.jpg" class="img-responsive center-block">
+                            <img src="/images/admin/post-default-768.jpg" class="img-responsive center-block">
                         @endif
 
 

@@ -35,7 +35,7 @@
                                         </a>
                                     @endif
                                 @else
-                                    <img src="/images/user-default-768.jpg" class="img-responsive">
+                                    <img src="/images/admin/user-default-768.jpg" class="img-responsive">
                                 @endif
                             </div>
 

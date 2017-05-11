@@ -4,7 +4,7 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <span>
-                        <img alt="image" class="img-circle" src="{{Auth::user()->photo ? Auth::user()->photo->sizes->last()->path : '/images/user-default-50.jpg'}}" height="50px" />
+                        <img alt="image" class="img-circle" src="{{Auth::user()->photo ? Auth::user()->photo->sizes->last()->path : '/images/admin/user-default-50.jpg'}}" height="50px" />
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
