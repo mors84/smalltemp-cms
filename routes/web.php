@@ -64,3 +64,12 @@ Route::group(['middleware' => 'admin'], function() {
     Route::put('/admin/users/active/{user}', 'UserController@ajaxChangeActive')->name('users.ajaxChangeActive');
 
 });
+
+
+/**
+* Pages fo admin but store actions for guest
+*
+*
+*/
+Route::resource('/admin/comments', 'CommentController', ['except' => ['create', 'edit']]);
+Route::resource('/admin/comment/replies', 'CommentReplyController', ['except' => ['create', 'edit', 'show']]);
