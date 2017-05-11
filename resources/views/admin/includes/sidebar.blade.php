@@ -85,21 +85,7 @@
                         <li class="{{Request::url() == route('users.edit', Auth::user()->id) ? 'active' : null}}"><a href="{{route('users.edit', Auth::user()->id)}}">{{trans('admin.yourProfile')}}</a></li>
                     </ul>
                 </li>
-            @endif
-            <li class="{{starts_with(Route::currentRouteName(), 'employees') || starts_with(Route::currentRouteName(), 'companies') ? 'active' : null}}">
-                <a href="{{route('employees.index')}}"><i class="fa fa-address-book"></i>
-                    <span class="nav-label">{{trans('admin.clients')}}</span>
-                    <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li class="{{Route::is('employees.index') ? 'active' : null}}"><a href="{{route('employees.index')}}">{{trans('admin.allEmployees')}}</a></li>
-                    <li class="{{Route::is('employees.create') ? 'active' : null}}"><a href="{{route('employees.create')}}">{{trans('admin.addEmployee')}}</a></li>
-                    <li class="{{Route::is('companies.index') ? 'active' : null}}"><a href="{{route('companies.index')}}">{{trans('admin.allCompanies')}}</a></li>
-                    <li class="{{Route::is('companies.create') ? 'active' : null}}"><a href="{{route('companies.create')}}">{{trans('admin.addCompany')}}</a></li>
-                </ul>
-            </li>
-            <li class="{{starts_with(Route::currentRouteName(), 'forms') ? 'active' : null}}">
-                <a href="{{route('forms.index')}}"><i class="fa fa-file-text"></i> <span class="nav-label">{{trans('admin.forms')}}</span></a>
-            </li>
+            @endif            
             <li>
                 <a href="#"><i class="fa fa-cog"></i> <span class="nav-label">{{trans('admin.settings')}}</span></a>
             </li>
