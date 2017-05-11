@@ -3,6 +3,6 @@
         {{trans('tables.role')}}: <strong>{{Auth::user()->role->name}}</strong>
     </div>
     <div>
-        <strong>Copyright</strong> Sealan. &copy; 2017
+        Smalltemp Admin Panel
     </div>
 </div>

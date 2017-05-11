@@ -23,7 +23,7 @@
                         <div class="col-xs-8 text-right">
                             <span> {{trans('admin.lastUpdate')}} </span>
 
-                            <h2 class="font-bold">09.02.2017</h2>
+                            <h2 class="font-bold">11.05.2017</h2>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 {{-- About Admin Panel --}}
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Sealan. <small class="m-l-sm">{{trans('admin.adminPanel')}}</small></h5>
+                        <h5>Smalltemp <small class="m-l-sm">{{trans('admin.adminPanel')}}</small></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -47,9 +47,9 @@
                     </div>
                     <div class="ibox-footer">
                         <span class="pull-right">
-                            <a href="mailto:kontakt@sealan.pl">kontakt@sealan.pl</a>
+                            <a href="mailto:kontakt@sealan.pl">name@domain.com</a>
                         </span>
-                        <a href="http://www.sealan.pl">www.sealan.pl</a>
+                        <a href="http://www.sealan.pl">www.domain.com</a>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                     </div>
                     <div class="ibox-content text-center">
 
-                        <h3><i class="fa fa-phone"></i> +48 793 488 321</h3>
+                        <h3><i class="fa fa-phone"></i> +00 000 000 000</h3>
                         <span class="small">
                             {{trans('admin.supportInfo')}}
                         </span>

@@ -111,7 +111,7 @@ return [
     'users'                             =>  'Users',
     'view'                              =>  'View',
     'welcome'                           =>  'Welcome',
-    'welcomeToAdminPanel'               =>  'Welcome to Admin Panel',
+    'welcomeToAdminPanel'               =>  'Welcome to Smalltemp Admin Panel',
     'widthOfPhotos'                     =>  'Width of Photos',
     'yourProfile'                       =>  'Your profile',
     'yourMessage'                       =>  'Your message',
@@ -147,7 +147,7 @@ return [
 
     'supportInfo' => 'Please contact with us if you have any questions. We are avalible 24h.',
 
-    'tagInfo' => '',
+    'tagInfo' => 'The name of a tag.',
 
     'titleAttributeInputInfo' => '',
 

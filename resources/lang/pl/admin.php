@@ -111,7 +111,7 @@ return [
     'users'                             =>  'Użytkownicy',
     'view'                              =>  'Zobacz',
     'welcome'                           =>  'Witaj',
-    'welcomeToAdminPanel'               =>  'Witaj w panelu administracyjnym',
+    'welcomeToAdminPanel'               =>  'Witaj w panelu administracyjnym Smalltemp',
     'widthOfPhotos'                     =>  'Szerokość zdjęć',
     'yourProfile'                       =>  'Twój profil',
     'yourMessage'                       =>  'Twoja wiadomość',
@@ -135,7 +135,7 @@ return [
 
     'metadataInfo' => 'Metadane wykorzystywane są przez wyszukiwarki w tym m.in. przez Google. Tytuł oraz opis wyświetlane są na stronie z wynikami zwracanej w odpowiedzi na zapytania skierowane do wyszukiwarki.',
 
-    'metaTagTitleInfo' => 'Ogranicz długość tytułu do 50 znaków (wliczając w to spacje). Jeśli przekroczysz tą wartość, na stronach wyników wyszukiwania może on zostać wyświetlony skrócony.  Pamiętaj aby tytuł odzwierciedlał tematykę zamieszonej na stronie treści. Umieść słowa kluczowe na samym początku. Dzięki temu zmaksymalizujesz korzyści w wynikach wyszukiwania. Jeśli dodatkowo chciałbyś umieścić nazwę swojej marki, dopisz ją na samym końcu, najlepiej poprzedzając znakiem podziału np. kreską pionową |, minusem -, dwukropkiem :, lub znakiem większości >.',
+    'metaTagTitleInfo' => 'Ogranicz długość tytułu do 50 znaków (wliczając w to spacje). Jeśli przekroczysz tą wartość, na stronach wyników wyszukiwania może on zostać wyświetlony skrócony. Pamiętaj aby tytuł odzwierciedlał tematykę zamieszonej na stronie treści. Umieść słowa kluczowe na samym początku. Dzięki temu zmaksymalizujesz korzyści w wynikach wyszukiwania. Jeśli dodatkowo chciałbyś umieścić nazwę swojej marki, dopisz ją na samym końcu, najlepiej poprzedzając znakiem podziału np. kreską pionową |, minusem -, dwukropkiem :, lub znakiem większości >.',
 
     'metaTagKeywordsInfo' => 'Słowa kluczowe zostaną ukryte w kodzie HTML. Należy zawrzeć w nich wyrażenia kluczowe związane z tematyką strony. W przeszłości spamerzy wykorzystywali je w niecnych celach, więc nie mają one aktualnie wpływu na ranking strony. Pole nieobowiązkowe.',
 
