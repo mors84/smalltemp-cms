@@ -1,0 +1,17 @@
+/* Only demo */
+@media (max-width: 1000px) {
+  .welcome-message {
+    display: none;
+  }
+}
+
+a {
+    color: $text-color;
+    &:hover, &:focus, &:active {
+        color: $navy;
+    }
+}
+
+textarea {
+    resize: none;
+}
