@@ -36,19 +36,6 @@ class CreateForeignKeys extends Migration
         Schema::table('taggables', function (Blueprint $table) {
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
-
-        Schema::table('employees', function (Blueprint $table) {
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-        });
-
-        Schema::table('forms', function (Blueprint $table) {
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-        });
-
-        Schema::table('form_answers', function (Blueprint $table) {
-            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
-        });
     }
 
     /**
@@ -80,19 +67,6 @@ class CreateForeignKeys extends Migration
 
         Schema::table('taggables', function (Blueprint $table) {
             $table->dropForeign('taggables_tag_id_foreign');
-        });
-
-        Schema::table('employees', function (Blueprint $table) {
-            $table->dropForeign('employees_company_id_foreign');
-        });
-
-        Schema::table('forms', function (Blueprint $table) {
-            $table->dropForeign('forms_employee_id_foreign');
-            $table->dropForeign('forms_company_id_foreign');
-        });
-
-        Schema::table('form_answers', function (Blueprint $table) {
-            $table->dropForeign('form_answers_form_id_foreign');
         });
     }
 }
