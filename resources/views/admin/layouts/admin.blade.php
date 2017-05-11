@@ -9,9 +9,6 @@
     <meta name="robots" content="noindex">
     <title>{{trans('admin.adminPanel')}} | {{config('app.name')}}</title>
 
-    {{-- Favicons --}}
-    @include('includes.favicons')
-
     {{-- CSS Files --}}
     <link rel="stylesheet" href="{{asset('css/admin/vendors.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin/app.css')}}">
